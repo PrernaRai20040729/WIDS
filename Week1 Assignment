@@ -1,0 +1,88 @@
+1ST
+DictionaryOfWords = {}         #Dictionary mapping every word to a list (of indices of the words' occurences)
+Novel = []                     #List of all words in the order, in which they appear!
+
+
+
+i = 0                   #Counter Variable to keep track of index of words
+
+for line in File.readlines():     #Iterate over all lines present in the text
+    
+    #Look at Python's Conciseness!
+    
+    line = line.replace(".","").replace(",","").replace('?','').replace('!','').replace('[','').replace(']','')\
+    .replace('(','').replace(')','').replace('%','').replace('/','')
+      
+    #COMPLETE THE CODE FROM HERE:
+    
+    #This would split the line into many different words, and iterate over these words
+    
+    for  word______ in line.split(' '): 
+                                                                             
+        if ___word_____ in DictonaryOfWords.keys():     #If the word is already present in the dictionary
+                                                                             
+            __ DictonaryOfWords[word].append(i) ____________        #Add the index into the pre-existing list for this word
+                                                                             
+        else:
+            _DictonaryOfWords[word]  = [i] _____________        #Create a new list of indices for this word, with a single element
+                                                                             
+        
+        Novel.append(___word__)        #Add the Word in the Novel's ordered list of words
+                                                                             
+        i+=1
+
+
+#COMPLETE THE CODE FROM HERE:
+2ND
+def GetQuery():
+   
+    word = _input("Enter word")_______________________        #Get Input from the user regarding what word s/he wants to query for
+
+    Number = input("Enter number")________________________      #Get Input from the user regarding how many results the user wants to see
+
+    return (_word___,Number___)     
+
+3RD
+def PrintContext(index):
+    
+    global Novel                          #Declares the list Novel as a Global Variable
+    
+    #COMPLETE THE CODE FROM HERE:
+    
+    for i in range( index-5,index+5 _____ ) :           #Define the range so that the task above is fulfilled
+        
+        print(_Novel[i]____, end = ' ')          #Print the word (using List Indexing) with a space after that
+        
+    print('\n')
+
+
+4TH
+def PrintResult(word, NumQuery):
+  
+    global DictionaryOfWords                #Allows us to use the Dictionary as a global variable
+    
+    #COMPLETE THE CODE FROM HERE:
+    
+    L = DictionaryOfWords[_word_____] 
+    
+    for i in range(0,min(len(L),NumQuery)):
+        
+        PrintContext(__DictionaryOfWords[word][i]________)     
+
+
+
+5TH
+while 1>0 :   
+    
+    Choice = input('Press Y in order to Continue with the next query or N to end. \ 
+    Please press Enter after entering your choice!')
+    
+    #COMPLETE THE CODE FROM HERE:
+    
+    if Choice== ___Y__ :                     # If the user wants to query 
+        
+        ____ PrintResult(GetQuery())_________                        #Use some of the past defined function to do so
+        
+    else:
+        
+        break   
